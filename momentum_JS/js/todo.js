@@ -7,7 +7,7 @@ const toDoList = document.getElementById('todo-list');
 const TODOS_KEY = 'todos';
 
 // localStorge 저장
-const toDos = [];
+let toDos = [];
 
 function saveTodos() {
   localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
@@ -46,10 +46,15 @@ function deleteTodo(event) {
 
 toDoForm.addEventListener('submit', handleToDoSubmit);
 
+// localStorge에 todo 값 저장
 const savedTodos = localStorage.getItem(TODOS_KEY);
 
-console.log(savedTodos);
-if (saveTodos !== null) {
+if (savedTodos !== null) {
   const parsedToDos = JSON.parse(savedTodos);
-  parsedToDos.forEach();
+  toDos = parsedToDos;
+  parsedToDos.forEach(paintTodo);
 }
+
+/**  지금 내가 어떤 아이템을 사용하고 있는지 모른다면 무용지물이다
+  forEach 는 array 의 item 에 대해 각각 함수를 실행한다 
+*/
