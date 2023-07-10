@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    const root = document.getElementById('root');
+    /* const Title = () => (
+      <h3 id='title' onMouseEnter={() => console.log('im Mouseenter')}>
+        hello world
+        </h3>
+        );
+        const Button = () => (
+          <button onClick={() => console.log('im clicked')}>Click Me </button>
+          ); */
+
+    let counter = 0;
+    // 슈퍼 어썸 리액트로 하는 카운터
+
+    function App() {
+      // const 로 해서 오류 counter 값이 계속 바뀌므로 let으로 하자
+      let [counter, setCounter] = React.useState(0);
+      // 왜 setCounter 가 필요한가.
+      // 리렌더링을 위해서 필요함.
+      const onClick = () => {
+        setCounter(counter + 1);
+      };
+      return (
+        <div>
+          <h3> Counter : {counter}</h3>
+          <button onClick={() => onClick()}> Click Me </button>
+        </div>
+      );
+    }
+    ReactDOM.render(<App />, document.getElementById('root')); // 18문법
+
+    // 별로 좋지 않은 방법의 카운터
+    // function countUp() {
+    //   counter = counter + 1;
+    //   rerender();
+    // }
+    // function rerender() {
+    //   ReactDOM.render(<App />, root); //리렌더링
+    // }
+    // const App = () => (
+    //   <div>
+    //     <h3> Counter : {counter}</h3>
+    //     <button onClick={countUp}> Click Me </button>
+    //   </div>
+    // );
+    // const h3 = React.createElement(
+    //   'h3',
+    //   {
+    //     onMouseEnter: () => console.log('im Mouseenter'),
+    //   },
+    //   'hello world'
+    // );
+    // const btn = React.createElement(
+    //   'button',
+    //   {
+    //     onClick: () => console.log('im clicked'),
+    //   },
+    //   'click me'
+    // );
+
+    // const container = React.createElement('div', null, [Title, Button]);
+    // null 값이 프로퍼티. 프로퍼티는 무엇이든 될 수 있다(id, class ...etc)
+    // 대괄호 안에 들어있는 이게 컴포넌트...? 너무너무 신기하다
+    // ReactDOM.render(<App />, root); //17문법
+  </script>
+</html>
