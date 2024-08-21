@@ -11,6 +11,8 @@ const minus: Minus = (a, b) => a - b;
 // 오버로딩(Overloading)
 // 함수가 서로 다른 여러 개의 call signatures 를 가지고 있을 때 발생함
 
+//많은 사람들이 패키지나 라이브러리를 만들 때 자주 사용하는 예시
+
 type Config = {
   path: string;
   state: object;
@@ -18,13 +20,25 @@ type Config = {
 
 type Push = {
   (path: string): void;
-  (config: Config);
+  (config: Config): void;
 };
 
 const push: Push = (config) => {
   if (typeof config === "string") {
     console.log(config);
   } else {
-    console.log(config.path);
+    console.log(config.path, config.state);
   }
+};
+
+// 파라미터의 개수가 다른 예시
+type Add = {
+  (a: number, b: number): number;
+  (a: number, b: number, c: number): number;
+};
+
+const add2: Add = (a, b, c?: number) => {
+  // c가 옵션이라는 말을 해줘야하기 때문에 타입과 옵션 처리를 해줘야함
+  if (c) return a + b + c;
+  return a + b;
 };
