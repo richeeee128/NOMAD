@@ -4,17 +4,21 @@
   "description": "Zoom Clone using NodeJS, WebRTC and Websockets",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "nodemon": "^3.1.0"
+    "express": "^4.19.2",
+    "nodemon": "^3.1.0",
+    "pug": "^3.0.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.24.5",
     "@babel/core": "^7.24.5",
-    "@babel/node": "^7.23.9"
+    "@babel/node": "^7.23.9",
+    "@babel/preset-env": "^7.25.3"
   }
 }

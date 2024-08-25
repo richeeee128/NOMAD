@@ -1,3 +1,34 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  position: relative;
+  color: #fff;
+  text-align: center;
+}
+
+#clock {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+}
+#login-form {
+  border: 0;
+}
+#login-form button {
+  background-color: #000;
+}
+
 .hidden {
-  display : none;
+  display: none;
+}
+
+img {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* opacity: 30%; */
+  z-index: -1;
 }
