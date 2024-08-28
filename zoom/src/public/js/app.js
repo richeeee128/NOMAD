@@ -1,1 +1,2 @@
-console.log("됐다!");
+// 서버로의 연결
+const frontSocket = new WebSocket(`ws://${window.location.host}`);
