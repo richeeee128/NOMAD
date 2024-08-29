@@ -22,11 +22,16 @@ const wss = new WebSocketServer({ server });
  */
 
 //이 socket 은 서버와 브라우저사이의 연결
-function handleConnection(socket) {
-  console.log(socket);
-}
 
-wss.on("connection", handleConnection);
+wss.on("connection", (socket) => {
+  socket.on("close", () => {
+    console.log("Disconnected from browser");
+  });
+  socket.on("message", (message) => {
+    console.log(message.toString("utf-8"));
+  });
+  socket.send("hello");
+});
 
 //포트 3000에 ws 서버와 http 서버를 통일함
 server.listen(3000, handleListen);
